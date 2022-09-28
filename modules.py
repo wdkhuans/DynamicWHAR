@@ -17,7 +17,7 @@ class DynamicWHAR (nn.Module):
         self.dropout_prob = 0.6
         self.conv1 = nn.Conv1d(self.node_dim, self.channel_dim, kernel_size=1, stride=1)
         self.bn1 = nn.BatchNorm1d(self.channel_dim)
-        self.conv2 = nn.Conv1d(self.window_size, self.time_reduce_size, kernel_size=1, stride=1)
+        self.conv2 = nn.Conv1d(self.window_size, self.time_reduce_size, kernel_size=5, stride=1, padding=2)
         self.bn2 = nn.BatchNorm1d(self.time_reduce_size)
         self.conv3 = nn.Conv1d(self.channel_dim * self.time_reduce_size * 2, self.channel_dim * self.time_reduce_size * 2, kernel_size=1, stride=1)
         self.bn3 = nn.BatchNorm1d(self.channel_dim * self.time_reduce_size * 2)        
